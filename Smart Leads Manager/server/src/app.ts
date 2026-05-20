@@ -19,7 +19,7 @@ app.set('trust proxy', 1);
 app.use(helmet());
 app.use(
   cors({
-    origin: env.CLIENT_URL || '*',
+    origin: env.CLIENT_URL ? env.CLIENT_URL.trim() : '*',
     credentials: true,
     methods: ['GET', 'POST', 'PUT', 'DELETE'],
   })
